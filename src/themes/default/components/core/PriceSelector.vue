@@ -1,13 +1,14 @@
 <template>
-  <div @click="switchFilter(id, from, to)">
+  <div>
+    <input name="from" type="number" v-model="from">
+    <input name="to" type="number" v-model="to">
+
     <button
-      class="relative brdr-cl-bg-tertiary brdr-1 bg-cl-transparent mr10 pointer price-selector"
-      :class="{ active: active }"
-      :aria-label="$t('Price ') + content"
+      type="button"
+      @click="switchFilter(from, to)"
     >
-      <span class="bg-cl-transparent absolute block square"/>
+      Set range
     </button>
-    <span>{{ content }}</span>
   </div>
 </template>
 

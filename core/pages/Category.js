@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import toString from 'lodash-es/toString'
 
 import i18n from '@vue-storefront/i18n'
 import store from '@vue-storefront/core/store'
@@ -183,11 +182,8 @@ export default {
     },
     onFilterChanged (filterOption) {
       this.pagination.current = 0
-      if (this.filters.chosen[filterOption.attribute_code] && ((toString(filterOption.id) === toString(this.filters.chosen[filterOption.attribute_code].id)) || filterOption.id === this.filters.chosen[filterOption.attribute_code].id)) { // for price filter it's a string
-        Vue.delete(this.filters.chosen, filterOption.attribute_code)
-      } else {
-        Vue.set(this.filters.chosen, filterOption.attribute_code, filterOption)
-      }
+
+      Vue.set(this.filters.chosen, filterOption.attribute_code, filterOption)
 
       let filterQr = buildFilterProductsQuery(this.category, this.filters.chosen)
 

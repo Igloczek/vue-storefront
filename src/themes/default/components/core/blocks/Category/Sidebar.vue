@@ -39,17 +39,11 @@
           :label="size.label"
         />
       </div>
-      <div v-else-if="filterIndex==='price'">
+      <div v-else-if="filterIndex === 'price'">
         <price-selector
-          context="category"
           class="price-select mb10 block"
+          context="category"
           code="price"
-          v-for="(price, index) in filter"
-          :key="index"
-          :id="price.id"
-          :from="price.from"
-          :to="price.to"
-          :content="price.label"
         />
       </div>
       <div v-else class="sidebar__inline-selecors">

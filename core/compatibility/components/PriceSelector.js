@@ -6,19 +6,7 @@ export default {
       type: null,
       default: ''
     },
-    id: {
-      type: null,
-      required: true
-    },
     code: {
-      type: null,
-      required: true
-    },
-    from: {
-      type: null,
-      required: true
-    },
-    to: {
       type: null,
       required: true
     },
@@ -29,7 +17,9 @@ export default {
   },
   data () {
     return {
-      active: false
+      active: false,
+      from: 0,
+      to: 0
     }
   },
   beforeMount () {
@@ -58,8 +48,8 @@ export default {
     filterReset (filterOption) {
       this.active = false
     },
-    switchFilter (id, from, to) {
-      this.$bus.$emit('filter-changed-' + this.context, { attribute_code: this.code, id: id, from: from, to: to })
+    switchFilter (from, to) {
+      this.$bus.$emit('filter-changed-' + this.context, { attribute_code: this.code, from: from, to: to })
     }
   }
 }
